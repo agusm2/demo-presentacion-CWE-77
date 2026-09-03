@@ -1,7 +1,5 @@
 # Demo CWE-77 - Command Injection
 
----
-
 ## Tecnologías utilizadas
 
 - Python 3
