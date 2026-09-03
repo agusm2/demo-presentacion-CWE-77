@@ -11,10 +11,11 @@ def llamar_llm(prompt):
     datos = {
         "model": MODEL,
         "prompt": prompt,
-        "stream": False,
-        "think": False
+        "stream": False, # Una vez que se envía el prompt, la respuesta completa se devuelve de una sola vez.
+        "think": False # No se requiere que la LLM piense antes de responder.
     }
 
+    # Enviar la solicitud POST a la LLM con el prompt.
     request = urllib.request.Request(
         OLLAMA_URL,
         data=json.dumps(datos).encode("utf-8"),
@@ -40,7 +41,7 @@ def version_vulnerable(cwe1, cwe2):
 
 
 def cwe_valido(valor):
-    # Allowlist de formato: solo CWE seguido de números.
+    # Allowlist de formato: CWE-[número].
     return re.fullmatch(r"CWE-\d+", valor) is not None
 
 
